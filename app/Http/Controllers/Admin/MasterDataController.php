@@ -24,8 +24,8 @@ class MasterDataController extends Controller
         'cities' => ['model' => City::class, 'title' => 'Kota', 'view' => 'cities'],
         'airports' => ['model' => Airport::class, 'title' => 'Bandara', 'view' => 'airports'],
         'aircrafts' => ['model' => Aircraft::class, 'title' => 'Pesawat', 'view' => 'aircrafts'],
-        'routes' => ['model' => FlightRoute::class, 'title' => 'Rute Penerbangan', 'view' => 'routes'],
-        'flight-schedules' => ['model' => FlightSchedule::class, 'title' => 'Jadwal Penerbangan', 'view' => 'flight_schedules'],
+        'routes' => ['model' => FlightRoute::class, 'title' => 'Rute Flyme', 'view' => 'routes'],
+        'flight-schedules' => ['model' => FlightSchedule::class, 'title' => 'Jadwal Flyme', 'view' => 'flight_schedules'],
         'ticket-classes' => ['model' => TicketClass::class, 'title' => 'Kelas Tiket', 'view' => 'ticket_classes'],
         'ticket-prices' => ['model' => TicketPrice::class, 'title' => 'Harga Tiket', 'view' => 'ticket_prices'],
     ];

@@ -15,7 +15,7 @@
                 }
             }
         @endphp
-        <div class="card border-0 shadow-sm">
+        <div class="card border-0 shadow-sm schedule-card">
             <div class="card-body d-flex flex-column flex-lg-row justify-content-between gap-3">
                 <div>
                     <div class="badge text-bg-success">{{ $schedule->flight_number }}</div>
@@ -24,7 +24,7 @@
                     @if(($tripType ?? 'one_way') === 'round_trip')
                         @if($returnSchedule)
                             <div class="mt-3 rounded-3 bg-light p-3">
-                                <div class="small text-muted">Penerbangan pulang</div>
+                                <div class="small text-muted">Perjalanan pulang Flyme</div>
                                 <strong>{{ $returnSchedule->flight_number }}</strong>
                                 <span class="text-muted">{{ $returnSchedule->route->originAirport->code }} ke {{ $returnSchedule->route->destinationAirport->code }} | {{ $returnSchedule->departure_time->format('d M Y H:i') }}</span>
                             </div>
@@ -38,12 +38,12 @@
                     <div class="fs-5 fw-bold">Rp {{ number_format(($price?->price ?? 0) + ($returnPrice?->price ?? 0), 0, ',', '.') }}</div>
                     @auth
                         @if(auth()->user()->hasRole('customer'))
-                        <a class="btn btn-success btn-sm mt-2 {{ (($tripType ?? 'one_way') === 'round_trip' && ! $returnSchedule) ? 'disabled' : '' }}" href="{{ route('customer.bookings.create', ['schedule' => $schedule, 'passengers' => $passengers, 'ticket_class_id' => $price?->ticket_class_id, 'return_schedule_id' => $returnSchedule?->id, 'trip_type' => $tripType ?? 'one_way']) }}">Pilih Kursi</a>
+                        <a class="btn btn-success btn-sm mt-2 {{ (($tripType ?? 'one_way') === 'round_trip' && ! $returnSchedule) ? 'disabled' : '' }}" href="{{ route('customer.bookings.create', ['schedule' => $schedule, 'passengers' => $passengers, 'ticket_class_id' => $price?->ticket_class_id, 'return_schedule_id' => $returnSchedule?->id, 'trip_type' => $tripType ?? 'one_way']) }}">Pilih Kursi Flyme</a>
                         @else
                             <a class="btn btn-outline-secondary btn-sm mt-2" href="{{ route(auth()->user()->dashboardRoute()) }}">Buka Dashboard</a>
                         @endif
                     @else
-                        <a class="btn btn-outline-success btn-sm mt-2" href="{{ route('login') }}">Login untuk booking</a>
+                        <a class="btn btn-outline-success btn-sm mt-2" href="{{ route('login') }}">Login untuk booking Flyme</a>
                     @endauth
                 </div>
             </div>

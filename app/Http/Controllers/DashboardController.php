@@ -55,7 +55,7 @@ class DashboardController extends Controller
                 'Total Revenue' => 'Rp '.number_format(Booking::where('status', 'confirmed')->sum('total_amount'), 0, ',', '.'),
                 'Total Booking' => Booking::count(),
                 'Total Customer' => User::whereHas('role', fn ($query) => $query->where('name', 'customer'))->count(),
-                'Total Penerbangan' => FlightSchedule::count(),
+                'Total Jadwal Flyme' => FlightSchedule::count(),
             ],
         ]);
     }

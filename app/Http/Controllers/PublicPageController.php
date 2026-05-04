@@ -6,7 +6,6 @@ use App\Models\Airport;
 use App\Models\ContactMessage;
 use App\Models\Faq;
 use App\Models\FlightSchedule;
-use App\Models\Promo;
 use App\Models\TicketClass;
 use App\Services\BookingService;
 use Illuminate\Http\RedirectResponse;
@@ -22,15 +21,14 @@ class PublicPageController extends Controller
         return view('public.home', [
             'airports' => Airport::with('city')->orderBy('code')->get(),
             'ticketClasses' => TicketClass::orderBy('id')->get(),
-            'promos' => Promo::where('status', 'approved')->latest()->limit(3)->get(),
         ]);
     }
 
     public function about(): View
     {
         return view('public.simple', [
-            'title' => 'Tentang Maskapai',
-            'body' => 'Airline Management & Ticket Booking System disiapkan sebagai platform maskapai terpadu untuk customer, admin, manager, dan CEO.',
+            'title' => 'Tentang Flyme',
+            'body' => 'Flyme disiapkan sebagai platform pemesanan tiket dan pengelolaan perjalanan yang terintegrasi untuk customer, admin, manager, dan CEO.',
         ]);
     }
 
@@ -44,11 +42,9 @@ class PublicPageController extends Controller
         ]);
     }
 
-    public function promos(): View
+    public function promos(): RedirectResponse
     {
-        return view('public.promos', [
-            'promos' => Promo::where('status', 'approved')->latest()->paginate(9),
-        ]);
+        return redirect()->route('home');
     }
 
     public function faq(): View

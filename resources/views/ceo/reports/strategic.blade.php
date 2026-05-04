@@ -12,7 +12,7 @@
         <div class="card border-0 shadow-sm card-body"><small>Customer</small><strong>{{ $totalCustomer }}</strong></div>
     </div>
     <div class="col-md-3">
-        <div class="card border-0 shadow-sm card-body"><small>Penerbangan</small><strong>{{ $totalFlights }}</strong></div>
+        <div class="card border-0 shadow-sm card-body"><small>Jadwal Flyme</small><strong>{{ $totalFlights }}</strong></div>
     </div>
 </div>
 <div class="d-flex gap-2 mb-3"><a class="btn btn-outline-success" href="{{ route('ceo.reports.export') }}">Export CSV</a><a class="btn btn-outline-primary" href="{{ route('ceo.reports.print') }}">PDF Print</a></div>

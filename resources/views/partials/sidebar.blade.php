@@ -6,7 +6,7 @@
 
 @if ($role === 'customer')
     <a class="{{ $linkClass(request()->routeIs('customer.dashboard')) }}" href="{{ route('customer.dashboard') }}">Dashboard</a>
-    <a class="{{ $linkClass(request()->routeIs('customer.flights.*') || request()->routeIs('customer.bookings.create') || request()->routeIs('customer.bookings.store')) }}" href="{{ route('customer.flights.search') }}">Cari Penerbangan</a>
+    <a class="{{ $linkClass(request()->routeIs('customer.flights.*') || request()->routeIs('customer.bookings.create') || request()->routeIs('customer.bookings.store')) }}" href="{{ route('customer.flights.search') }}">Cari Tiket Flyme</a>
     <a class="{{ $linkClass(request()->routeIs('customer.bookings.history') || request()->routeIs('customer.bookings.show') || request()->routeIs('customer.bookings.payment') || request()->routeIs('customer.bookings.ticket')) }}" href="{{ route('customer.bookings.history') }}">Riwayat Booking</a>
 @elseif ($role === 'admin')
     <a class="{{ $linkClass(request()->routeIs('admin.dashboard')) }}" href="{{ route('admin.dashboard') }}">Dashboard</a>

@@ -37,7 +37,7 @@
         <div class="row">
             <aside class="col-lg-3 col-xl-2 sidebar p-0">
                 <div class="p-4 text-white border-bottom border-secondary border-opacity-25">
-                    <div class="fw-bold fs-5">Maskapai</div>
+                    <div class="fw-bold fs-5">Flyme</div>
                     <small class="text-white-50">{{ auth()->user()->role->display_name }}</small>
                 </div>
                 <nav class="p-3 d-grid gap-1">

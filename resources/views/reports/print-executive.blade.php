@@ -20,7 +20,7 @@
                 <td>{{ $totalBooking }}</td>
             </tr>
             <tr>
-                <th>Total Penerbangan</th>
+                <th>Total Jadwal Flyme</th>
                 <td>{{ $totalFlights }}</td>
             </tr>
         </table><button onclick="window.print()" class="btn btn-success">Print / Save PDF</button>

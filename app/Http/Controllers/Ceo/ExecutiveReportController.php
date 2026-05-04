@@ -51,7 +51,7 @@ class ExecutiveReportController extends Controller
             ['Metric', 'Value'],
             ['Total Revenue', Booking::where('status', 'confirmed')->sum('total_amount')],
             ['Total Booking', Booking::count()],
-            ['Total Penerbangan', FlightSchedule::count()],
+            ['Total Jadwal Flyme', FlightSchedule::count()],
         ];
 
         return Response::streamDownload(function () use ($rows): void {

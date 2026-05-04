@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <section class="hero">
         <div class="container py-5">
             <div class="row align-items-center g-5">
@@ -14,8 +12,8 @@
                         <p class="lead mt-4 text-muted">Atur perjalanan domestik atau internasional, pilih kursi langsung dari seat map, lalu lanjut bayar dalam alur yang lebih singkat di semua ukuran layar.</p>
                     </div>
                     <div class="hero-actions mt-4">
-                        <a class="btn btn-success px-4" href="{{ route('register') }}">Daftar di Flyme</a>
-                        <a class="btn btn-outline-secondary px-4" href="{{ route('login') }}">Masuk</a>
+                        <a class="btn btn-success px-4" href="<?php echo e(route('register')); ?>">Daftar di Flyme</a>
+                        <a class="btn btn-outline-secondary px-4" href="<?php echo e(route('login')); ?>">Masuk</a>
                     </div>
                     <div class="hero-highlights mt-4">
                         <div class="hero-highlight">
@@ -33,7 +31,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <form class="hero-search p-4 p-lg-5" method="GET" action="{{ route('flights.search') }}">
+                    <form class="hero-search p-4 p-lg-5" method="GET" action="<?php echo e(route('flights.search')); ?>">
                         <span class="page-eyebrow">Quick Search</span>
                         <h2 class="h4 fw-bold section-title mt-3">Temukan jadwal Flyme yang paling pas</h2>
                         <p class="text-muted">Isi rute, tanggal, dan jumlah penumpang untuk mulai cari tiket.</p>
@@ -42,18 +40,18 @@
                                 <label class="form-label">Asal</label>
                                 <select class="form-select" name="origin_airport_id" required>
                                     <option value="">Asal</option>
-                                    @foreach ($airports as $airport)
-                                        <option value="{{ $airport->id }}">{{ $airport->code }} - {{ $airport->city->name }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $airports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $airport): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($airport->id); ?>"><?php echo e($airport->code); ?> - <?php echo e($airport->city->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Tujuan</label>
                                 <select class="form-select" name="destination_airport_id" required>
                                     <option value="">Tujuan</option>
-                                    @foreach ($airports as $airport)
-                                        <option value="{{ $airport->id }}">{{ $airport->code }} - {{ $airport->city->name }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $airports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $airport): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($airport->id); ?>"><?php echo e($airport->code); ?> - <?php echo e($airport->city->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                             <div class="col-md-6"><label class="form-label">Tanggal Berangkat</label><input class="form-control" name="departure_date" type="date" required></div>
@@ -61,9 +59,9 @@
                             <div class="col-12">
                                 <label class="form-label">Kelas</label>
                                 <select class="form-select" name="ticket_class_id">
-                                    @foreach ($ticketClasses as $class)
-                                        <option value="{{ $class->id }}">{{ $class->name }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $ticketClasses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $class): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($class->id); ?>"><?php echo e($class->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                             <div class="col-md-6">
@@ -127,4 +125,6 @@
             </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\flyme\resources\views/public/home.blade.php ENDPATH**/ ?>
