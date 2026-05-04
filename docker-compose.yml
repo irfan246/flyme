@@ -1,0 +1,31 @@
+services:
+  app:
+    build: .
+    container_name: maskapai-app
+    restart: always
+    volumes:
+      - .:/var/www/html
+      - maskapai_storage:/var/www/html/storage
+    networks:
+      - maskapai_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: maskapai-nginx
+    restart: always
+    ports:
+      - "8081:80"
+    volumes:
+      - .:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - maskapai_network
+    depends_on:
+      - app
+
+volumes:
+  maskapai_storage:
+
+networks:
+  maskapai_network:
+    driver: bridge
